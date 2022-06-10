@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/JavaScript">
+        // 监听跨域请求的返回    
+        window.addEventListener("message", function(event) {      
+            window.confirm('zhaojie');  
+            console.log(event, event.data);    
+        });
+    </script>
+</head>
+<body>
+    <div>输入iframe网址，失焦后切换</div>
+    <br>
+    <input type="text" id="zhaojie">
+    <br>
+    <br>
+    <iframe
+    id="iframeDoc"
+    height="500" width="600" src="https://docs.qq.com/doc/DVENGQU1icGVQbnFt?&hst=1" frameborder="1"></iframe>
+</body>
+<script>
+var inputBox = document.querySelector('#zhaojie');
+var iframeDoc = document.querySelector('#iframeDoc');
+inputBox.onblur = () => {
+    iframeDoc.src = inputBox.value;
+};
+</script>
+</html>
